@@ -1,0 +1,15 @@
+<project name="MyProject" default="init" basedir=".">
+    <description>
+        simple example increment build variable
+    </description>
+    <property name="src" location="../src/main/java"/>
+
+    <target name="init">
+        <buildnumber/>
+        <replaceregexp file="${src}/com/google/development/leonmerten/pattern/Main.java"
+                       match="private\s+static\s+final\s+String\s+BUILD_NUMBER\s+=\s+&quot;.*&quot;;"
+                       replace="private static final String BUILD_NUMBER = &quot;${build.number}&quot;;"
+                       byline="true"
+        />
+    </target>
+</project>
